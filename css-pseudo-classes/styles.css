@@ -1,0 +1,20 @@
+button {
+  box-sizing: border-box;
+  padding: 6px 25px;
+  font-size: 20px;
+}
+
+button:hover {
+  background-color: #000;
+  color: #fff;
+  cursor: pointer;
+}
+
+th {
+  background-color: #000;
+  color: #fff;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #ddd;
+}
