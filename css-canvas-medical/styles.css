@@ -1,0 +1,143 @@
+body {
+  margin: 0 auto 25px;
+  background-color: white;
+  font-family: 'Avenir', Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  color: #aaa;
+  width: 1024px;
+  max-width: 1200px;
+}
+
+.header {
+  width: 100%;
+  background-color: white;
+  margin-bottom: 30;
+  box-shadow: 0 2px 2px -2px rgba(49, 49, 49, 0.5);
+}
+
+.navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 2rem 5rem 0.25rem;
+}
+
+.header-logo {
+  position: absolute;
+  padding-left: 5rem;
+  top: 1.75rem;
+}
+
+.header > img {
+  width: 190px;
+}
+
+a {
+  margin: 0 1.25rem;
+  color: #aaa;
+}
+
+button {
+  background-color: #223b58;
+  font-family: 'Avenir', Arial, Helvetica, sans-serif;
+  color: #eee;
+  border: 0;
+  border-radius: 0.25rem;
+}
+
+button.contact-us {
+  padding: 0.6rem 0.7rem;
+  font-size: 0.75rem;
+  position: relative;
+  bottom: 0.6rem;
+}
+
+.container-introduction {
+  width: 85%;
+  height: 460px;
+  margin: 50px auto;
+}
+
+.intro-bg {
+  background-image: url("images/hero.jpg");
+  background-size: cover;
+  position: relative;
+  width 90%
+  height: 460px;
+}
+
+.img-bg > img {
+  width: 100%;
+}
+
+.intro-text {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  line-height: 1.5rem;
+  margin-left: 4rem;
+  position: absolute;
+  z-index: 3;
+}
+
+h1 {
+  font-family: 'Tiempos Headline', Georgia, serif;
+  font-size: 1.8rem;
+  line-height: 2.5rem;
+  margin-top: 4.5rem;
+  margin-bottom: 0;
+}
+
+button.get-started {
+  padding: 0.75rem 2.35rem;
+  font-size: 0.9rem;
+  margin-left: 4rem;
+  bottom: 3.7rem;
+  position: absolute;
+  z-index: 2;
+}
+
+.overlay {
+  background-color: rgba(92, 92, 92, 0.38);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.container-clinicians {
+  width: 100%;
+  background-color: #f8f8f8;
+  color: #808080;
+  box-shadow: 0 2px 2px -2px rgba(49, 49, 49, 0.5);
+}
+
+.clinicians-info {
+  text-align: center;
+  line-height: 1.5rem;
+  margin: 0 auto;
+  padding-top: 2rem;
+  padding-bottom: 0;
+}
+
+h2 {
+  font-family: 'Tiempos Headline', Georgia, serif;
+  font-size: 1.5rem;
+}
+
+.clinicians-list {
+  margin: 0;
+  padding: 2rem 0 4rem;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.two-column {
+  font-size: 0.9rem;
+  text-align: center;
+  line-height: 1.5rem;
+}
