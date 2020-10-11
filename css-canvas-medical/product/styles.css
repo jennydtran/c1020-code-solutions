@@ -8,6 +8,17 @@ body {
   max-width: 1200px;
 }
 
+.header-navigation > a:link,
+.header-navigation > a:visited {
+  margin: 0 1.25rem;
+  color: #aaa;
+}
+
+.address > img {
+  width: 110px;
+  padding: 0 0 1.5rem;
+}
+
 /* -- header section -- */
 .header {
   width: 100%;
@@ -23,14 +34,31 @@ body {
   padding: 2rem 5rem 0.25rem;
 }
 
-.header-logo {
-  position: absolute;
-  padding-left: 5rem;
-  top: 1.75rem;
+.contact-us > a:link,
+.contact-us > a:visited,
+.get-started > a:link,
+.get-started > a:visited {
+  margin: 0 1.25rem;
+  text-decoration: none;
+  color: #fff;
+}
+
+.img-bg > img {
+  width: 100%;
+}
+
+.product-image > img {
+  width: 100%;
 }
 
 .header > a > img {
   width: 190px;
+}
+
+.header-logo {
+  position: absolute;
+  padding-left: 5rem;
+  top: 1.75rem;
 }
 
 .header-links {
@@ -39,25 +67,13 @@ body {
   text-decoration: none;
 }
 
-.header-navigation > a:link,
-.header-navigation > a:visited {
-  margin: 0 1.25rem;
-  color: #aaa;
-}
-
+.legalities-text > a:hover,
 .header-navigation > a:hover,
 .contact-us > a:hover,
-.get-started > a:hover {
+.get-started > a:hover,
+.product-text-info > p > a:hover,
+.column-one-fourth > p > a:hover {
   font-size: 105%;
-}
-
-.contact-us > a:link,
-.contact-us > a:visited,
-.get-started > a:link,
-.get-started > a:visited {
-  margin: 0 1.25rem;
-  text-decoration: none;
-  color: #fff;
 }
 
 button {
@@ -75,6 +91,10 @@ button.contact-us {
   bottom: 0.6rem;
 }
 
+#current {
+  color: #2c4a6b;
+}
+
 /* -- first section -- */
 .container-introduction {
   width: 85%;
@@ -83,11 +103,13 @@ button.contact-us {
 }
 
 .intro-bg {
-  background-image: url("images/hero.jpg");
+  background-image: url("../images/product/product-header.jpg");
   background-size: cover;
   position: relative;
   width: 100%;
   height: 460px;
+  display: flex;
+  align-items: center;
 }
 
 .intro-text {
@@ -96,26 +118,15 @@ button.contact-us {
   color: white;
   line-height: 1.5rem;
   margin-left: 4rem;
-  position: absolute;
+  position: relative;
   z-index: 3;
 }
 
 h1 {
   font-family: 'Tiempos Headline', Georgia, serif;
   font-size: 1.8rem;
-  letter-spacing: 0.05em;
   line-height: 2.5rem;
-  margin-top: 4.5rem;
   margin-bottom: 0;
-}
-
-div.intro-bg > button.get-started {
-  padding: 0.75rem 2.35rem;
-  font-size: 0.9rem;
-  margin-left: 4rem;
-  bottom: 3.7rem;
-  position: absolute;
-  z-index: 2;
 }
 
 .overlay {
@@ -130,38 +141,60 @@ div.intro-bg > button.get-started {
   z-index: 1;
 }
 
-/* -- second section -- */
-.container-clinicians {
+/* -- middle section -- */
+.product-section-1and3 {
   width: 100%;
+  height: 550px;
   background-color: #f8f8f8;
   color: #808080;
   box-shadow: 0 2px 2px -2px rgba(49, 49, 49, 0.5);
 }
 
-.clinicians-info {
-  text-align: center;
-  line-height: 1.5rem;
+.section-container {
+  width: 85%;
+  height: inherit;
   margin: 0 auto;
-  padding-top: 2rem;
-  padding-bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 h2 {
   font-family: 'Tiempos Headline', Georgia, serif;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
+  line-height: 2rem;
 }
 
-.clinicians-list {
-  margin: 0;
-  padding: 2rem 0 4rem;
-  display: flex;
-  justify-content: space-evenly;
+blockquote {
+  display: inline;
+  font-family: 'Tiempos Headline', Georgia, serif;
+  font-size: 0.73rem;
+  margin-left: 0;
+  margin-top: 0.6rem;
 }
 
-.two-column {
-  font-size: 0.9rem;
-  text-align: center;
-  line-height: 1.5rem;
+p.cite-professional {
+  margin-top: 0.5rem;
+}
+
+.product-image {
+  width: 435px;
+}
+
+.product-text-info,
+.performance-text-info {
+  line-height: 1.2rem;
+}
+
+.product-section2 {
+  width: 100%;
+  height: 550px;
+  color: #808080;
+}
+
+.learn-more-link {
+  color: #2c4a6b;
+  text-decoration: none;
 }
 
 /* -- FOOTER section -- */
@@ -178,10 +211,11 @@ h2 {
   align-items: center;
 }
 
-div.learn-more > button.get-started {
+button.get-started {
   padding: 0 2.35rem;
   height: 45px;
   font-size: 0.9rem;
+  color: white;
   align-items: center;
 }
 
@@ -199,11 +233,6 @@ div.learn-more > button.get-started {
   line-height: 1.25rem;
   display: flex;
   justify-content: space-between;
-}
-
-div.address > img {
-  width: 110px;
-  padding: 0 0 1.5rem;
 }
 
 .footer-links {
@@ -245,9 +274,4 @@ h3 {
   font-size: 0.8rem;
   color: #808080;
   text-decoration: none;
-}
-
-.legalities-text > a:hover,
-.column-one-fourth > p > a:hover {
-  font-size: 105%;
 }
