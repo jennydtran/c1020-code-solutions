@@ -1,48 +1,3 @@
-body {
-  margin: 0 auto 25px;
-  background-color: white;
-  font-family: 'Avenir', Arial, Helvetica, sans-serif;
-  font-size: 12px;
-  color: #aaa;
-  width: 1024px;
-  max-width: 1200px;
-}
-
-.header-navigation > a:link,
-.header-navigation > a:visited {
-  margin: 0 1.25rem;
-  color: #aaa;
-}
-
-.address > img {
-  width: 110px;
-  padding: 0 0 1.5rem;
-}
-
-/* -- header section -- */
-.header {
-  width: 100%;
-  background-color: white;
-  margin-bottom: 30px;
-  box-shadow: 0 2px 2px -2px rgba(49, 49, 49, 0.5);
-}
-
-.header-navigation {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  padding: 2rem 5rem 0.25rem;
-}
-
-.contact-us > a:link,
-.contact-us > a:visited,
-.get-started > a:link,
-.get-started > a:visited {
-  margin: 0 1.25rem;
-  text-decoration: none;
-  color: #fff;
-}
-
 .img-bg > img {
   width: 100%;
 }
@@ -51,51 +6,10 @@ body {
   width: 100%;
 }
 
-.header > a > img {
-  width: 190px;
-}
-
-.header-logo {
-  position: absolute;
-  padding-left: 5rem;
-  top: 1.75rem;
-}
-
-.header-links {
-  margin: 0 1.25rem;
-  color: #aaa;
-  text-decoration: none;
-}
-
-.legalities-text > a:hover,
-.header-navigation > a:hover,
-.contact-us > a:hover,
-.get-started > a:hover,
-.product-text-info > p > a:hover,
-.column-one-fourth > p > a:hover {
+.product-text-info > p > a:hover {
   font-size: 105%;
 }
 
-button {
-  background-color: #2c4a6b;
-  font-family: 'Avenir', Arial, Helvetica, sans-serif;
-  color: #eee;
-  border: 0;
-  border-radius: 0.25rem;
-}
-
-button.contact-us {
-  padding: 0.6rem 0.7rem;
-  font-size: 0.75rem;
-  position: relative;
-  bottom: 0.6rem;
-}
-
-#current {
-  color: #2c4a6b;
-}
-
-/* -- first section -- */
 .container-introduction {
   width: 85%;
   height: 460px;
@@ -107,7 +21,7 @@ button.contact-us {
   background-size: cover;
   position: relative;
   width: 100%;
-  height: 460px;
+  height: inherit;
   display: flex;
   align-items: center;
 }
@@ -141,7 +55,6 @@ h1 {
   z-index: 1;
 }
 
-/* -- middle section -- */
 .product-section-1and3 {
   width: 100%;
   height: 550px;
@@ -194,84 +107,5 @@ p.cite-professional {
 
 .learn-more-link {
   color: #2c4a6b;
-  text-decoration: none;
-}
-
-/* -- FOOTER section -- */
-.container-footer {
-  margin: 0 auto;
-}
-
-.learn-more {
-  width: 85%;
-  height: 125px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-button.get-started {
-  padding: 0 2.35rem;
-  height: 45px;
-  font-size: 0.9rem;
-  color: white;
-  align-items: center;
-}
-
-.footer-nav-bg {
-  background-color: rgb(85, 85, 85);
-  width: 100%;
-  height: 335px;
-}
-
-.footer-navigation {
-  width: 85%;
-  margin: 0 auto;
-  padding-top: 75px;
-  color: white;
-  line-height: 1.25rem;
-  display: flex;
-  justify-content: space-between;
-}
-
-.footer-links {
-  color: white;
-  text-decoration: none;
-}
-
-.footer-half {
-  flex-basis: 50%;
-}
-
-h3 {
-  margin-top: 0;
-  text-transform: uppercase;
-}
-
-.footer-right {
-  display: flex;
-  font-size: 0.9rem;
-  flex-basis: 50%;
-  justify-content: space-around;
-}
-
-.legalities {
-  width: 100%;
-  height: 100px;
-  margin: 0 auto;
-  background-color: #f8f8f8;
-}
-
-.legalities-text {
-  width: 85%;
-  margin: 0 auto;
-  padding-top: 2.5rem;
-}
-
-.legal-links {
-  padding-right: 2.5rem;
-  font-size: 0.8rem;
-  color: #808080;
   text-decoration: none;
 }
