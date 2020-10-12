@@ -51,7 +51,7 @@ body {
 .contact-us > a:visited,
 .get-started > a:link,
 .get-started > a:visited {
-  margin: 0 1.25rem;
+  margin: 0 1rem;
   text-decoration: none;
   color: #fff;
 }
@@ -73,7 +73,7 @@ button {
 }
 
 button.contact-us {
-  padding: 0.6rem 0.7rem;
+  padding: 0.6rem 0;
   font-size: 0.75rem;
   position: relative;
   bottom: 0.6rem;
@@ -106,7 +106,7 @@ h2 {
 }
 
 div.learn-more > button.get-started {
-  padding: 0 2.35rem;
+  padding: 0 1.35rem;
   height: 45px;
   font-size: 0.9rem;
   align-items: center;
