@@ -102,8 +102,7 @@ var orderHistory = [
           dateReturnBy: 'Return window closed on Aug 4, 2020',
           price: '$94.95',
           buyAgain: 'Buy it again',
-          viewAgain: 'View your item ',
-          productReview: 'Write a product review'
+          viewAgain: 'View your item '
         }
       },
       {
