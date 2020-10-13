@@ -17,10 +17,10 @@ var orderHistory = [
           image: 'Image: JavaScript for impatient programmers',
           name: 'JavaScript for impatient programmers',
           author: 'Rauschmayer, Dr. Axel',
-          dateReturnBy: 'Return window closed on Aug 19, 2020',
+          dateReturnBy: 'Aug 19, 2020',
           price: 31.55,
           buyAgain: 'Buy it again',
-          viewAgain: 'View your item '
+          viewAgain: 'View your item'
         }
       }
     ],
@@ -48,7 +48,7 @@ var orderHistory = [
           dateReturnBy: 'Aug 19, 2020',
           price: 41.33,
           buyAgain: 'Buy it again',
-          viewAgain: 'View your item '
+          viewAgain: 'View your item'
         }
       }
     ],
@@ -75,7 +75,7 @@ var orderHistory = [
           dateReturnBy: 'Aug 19, 2020',
           price: 15.98,
           buyAgain: 'Buy it again',
-          viewAgain: 'View your item '
+          viewAgain: 'View your item'
         }
       }
     ],
@@ -102,7 +102,7 @@ var orderHistory = [
           dateReturnBy: 'Aug 4, 2020',
           price: 94.95,
           buyAgain: 'Buy it again',
-          viewAgain: 'View your item '
+          viewAgain: 'View your item'
         }
       },
       {
@@ -113,7 +113,7 @@ var orderHistory = [
           dateReturnBy: 'Aug 4, 2020',
           price: 33.99,
           buyAgain: 'Buy it again',
-          viewAgain: 'View your item '
+          viewAgain: 'View your item'
         }
       }
     ],
