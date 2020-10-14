@@ -1,0 +1,36 @@
+body {
+  font-family: 'Barlow', sans-serif;
+}
+
+.section-howitworks {
+  margin: 0 auto;
+  max-width: 1024px;
+  min-width: 700px;
+  text-align: center;
+}
+
+.section-row {
+  display: flex;
+  justify-content: center;
+}
+
+.phone-info {
+  margin: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.phone-imagescreen {
+  width: 100%;
+  padding-bottom: 0.75rem;
+}
+
+.phone-icon {
+  width: 25%;
+}
+
+p {
+  width: 75%;
+  font-size: 80%;
+}
