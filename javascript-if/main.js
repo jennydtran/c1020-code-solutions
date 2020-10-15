@@ -11,13 +11,11 @@
 
 // ---- isUnderFive
 function isUnderFive(number) {
-  var lessThanFive;
   if (number < 5) {
-    lessThanFive = true;
+    return true;
   } else {
-    lessThanFive = false;
+    return false;
   }
-  return lessThanFive;
 }
 console.log('isUnderFive(4):', isUnderFive(4));
 console.log('isUnderFive(10):', isUnderFive(10));
@@ -25,13 +23,11 @@ console.log('isUnderFive(5):', isUnderFive(5));
 
 // ---- isEven
 function isEven(number) {
-  var even;
   if (number % 2 === 0) {
-    even = true;
+    return true;
   } else {
-    even = false;
+    return false;
   }
-  return even;
 }
 console.log('isEven(4):', isEven(4));
 console.log('isEven(10):', isEven(10));
@@ -39,13 +35,11 @@ console.log('isEven(5):', isEven(5));
 
 // ---- startsWithJ
 function startsWithJ(string) {
-  var letter;
-  if (string.charAt(0) === 'J') {
-    letter = true;
+  if (string[0] === 'J') {
+    return true;
   } else {
-    letter = false;
+    return false;
   }
-  return letter;
 }
 console.log("startsWithJ('JavaScript'):", startsWithJ('JavaScript'));
 console.log("startsWithJ('PHP'):", startsWithJ('PHP'));
@@ -83,7 +77,7 @@ console.log('isOldEnoughToDrive(homer):', isOldEnoughToDrive(homer));
 // ---- isOldEnoughToDrinkAndDrive
 function isOldEnoughToDrinkAndDrive(person) {
   var legal = person.age;
-  if (person.age >= 21 || person.age >= 16) {
+  if (person.age >= 21 && person.age >= 16) {
     legal = false;
   } else {
     legal = false;
@@ -94,17 +88,15 @@ console.log('isOldEnoughToDrinkAndDrive(homer):', isOldEnoughToDrinkAndDrive(hom
 
 // ---- categorizeAcidity
 function categorizeAcidity(pH) {
-  var level;
   if (pH === 7) {
-    level = 'neutral';
-  } else if (pH > 0 && pH < 7) {
-    level = 'acid';
+    return 'neutral';
+  } else if (pH >= 0 && pH < 7) {
+    return 'acid';
   } else if (pH > 7 && pH <= 14) {
-    level = 'base';
+    return 'base';
   } else {
-    level = 'invalid pH level';
+    return 'invalid pH level';
   }
-  return level;
 }
 console.log('categorizeAcidity(-1):', categorizeAcidity(-1));
 console.log('categorizeAcidity(14.0000001):', categorizeAcidity(14.0000001));
