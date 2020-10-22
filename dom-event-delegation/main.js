@@ -5,7 +5,6 @@ taskList.addEventListener('click', function (event) {
   var buttonObject;
   for (var i = 0; i < allButtons.length; i++) {
 
-    allButtons[i].setAttribute('class', 'button');
     buttonObject = allButtons[i];
 
     var li = buttonObject.closest('.task-list-item');
