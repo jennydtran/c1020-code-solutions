@@ -11,8 +11,8 @@ taskList.addEventListener('click', function (event) {
     var li = buttonObject.closest('.task-list-item');
 
     if (event.target === buttonObject) {
+      console.log('closest .task-list-item', li);
       li.remove();
-      console.log('closest .task-list-item');
     }
   }
 
