@@ -19,7 +19,7 @@ var array = [
 console.log('array of books:', '\n', array);
 console.log('typeOf array:', typeof array);
 
-console.log('JSON.stringify result:', '\n', JSON.stringify(array));
+console.log('JSON.stringify result:', '\n', JSON.stringify(array, null, 1));
 console.log('typeof JSON.stringify():', typeof JSON.stringify(array));
 
 var jsonString = '{ "number id": "45424362", "name": "Jenny Tran" }';
