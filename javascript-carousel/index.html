@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Carousel</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="row images-arrows">
+      <div class="container-arrows left">
+        <i class="fas fa-chevron-left fa-3x"></i>
+      </div>
+      <div class="container-image">
+        <img class="pokemon current-pokemon" src="images/001.png" alt="Pokemon Bulbasaur" id="bulbasaur">
+        <img class="pokemon hidden" src="images/004.png" alt="Pokemon Charmander">
+        <img class="pokemon hidden" src="images/007.png" alt="Pokemon Squirtle">
+        <img class="pokemon hidden" src="images/025.png" alt="Pokemon Pikachu">
+        <img class="pokemon hidden" src="images/039.png" alt="Pokemon Jigglypuff" id="jigglypuff">
+      </div>
+      <div class="container-arrows right">
+        <i class="fas fa-chevron-right fa-3x"></i>
+      </div>
+    </div>
+    <div class="row container-buttons">
+      <button class="button-image current-button" id="firstbutton"></button>
+      <button class="button-image"></button>
+      <button class="button-image"></button>
+      <button class="button-image"></button>
+      <button class="button-image" id="lastbutton"></button>
+    </div>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>
