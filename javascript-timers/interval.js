@@ -1,12 +1,16 @@
 var h1 = document.querySelector('h1');
-var headings = ['4', '3', '2', '1', '~Earth Beeeeelooooww Us~'];
+var headings = ['3', '2', '1', '~Earth Beeeeelooooww Us~'];
 
-var intervalID;
+var intervalID = null;
+var i = 0;
 
 function changeHeading() {
-  var i = 0;
-  h1.textcontent = headings[i];
-  i++;
+  if (i < headings.length) {
+    h1.textContent = headings[i];
+    i++;
+  } else {
+    clearInterval(intervalID);
+  }
 }
 
-window.addEventListener('load', setInterval(changeHeading(), 1000));
+intervalID = setInterval(changeHeading, 900);
