@@ -32,8 +32,11 @@ Bank.prototype.getTotalAssets = function () {
     return 0;
   }
 
-  var assetArray = [];
-  
-  var grandTotal = 0;
-  return grandTotal;
+  var totalAssets = 0;
+
+  for (var i = 0; i < this.accounts.length; i++) {
+    totalAssets += this.accounts[i].getBalance();
+  }
+
+  return totalAssets;
 };
