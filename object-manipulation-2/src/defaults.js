@@ -1,18 +1,15 @@
 /* eslint-disable no-unused-vars */
 function defaults(target, source) {
-  if (source === {}) {
-    return target;
-  }
-
-  for (var newProp in source) {
-    var newValue = source[newProp];
-    for (var ogProp in target) {
-      var ogValue = target[ogProp];
-      if (ogProp !== newProp) {
-        target[newProp] = newValue;
-      } else if (ogProp === newProp) {
-        target.ogProp = ogValue;
+  for (var property in target) {
+    var include = false;
+    for (property in source) {
+      if (source[property] === target[property] || source[property] === undefined) {
+        include = true;
+        break;
       }
+    }
+    if (!include || target[property] === undefined) {
+      target[property] = source[property];
     }
   }
   return target;
