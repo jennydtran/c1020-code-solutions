@@ -2,15 +2,15 @@
 function isPalindromic(string) {
   var i;
   for (i = 0; i < string.length; i++) {
-    string = string.replace(' ', '');
+    var newString = string.replace(' ', '');
   }
 
-  var backwards = string.length - 1;
-  for (i = 0; i < string.length; i++) {
-    if (string[i] === string[backwards]) {
-      var match = true;
-    } else if (string[i] !== string[backwards]) {
+  var backwards = newString.length - 1;
+  for (i = 0; i < newString.length; i++) {
+    if (newString[i] !== newString[backwards]) {
       return false;
+    } else if (newString[i] === newString[backwards]) {
+      var match = true;
     }
     backwards--;
   }
