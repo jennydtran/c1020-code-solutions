@@ -34,9 +34,7 @@ function imageChangeForward() {
 
 // click right arrow moves image reel forward
 function clickRightChevron(event) {
-  var rightArrow = document.querySelector('.fa-chevron-right');
-
-  if (event.target !== rightArrow) {
+  if (!event.target.matches('.fa-chevron-right')) {
     return;
   }
   imageChangeForward();
@@ -48,16 +46,15 @@ document.addEventListener('click', clickRightChevron);
 
 // click left arrow moves image backward
 function clickLeftChevron(event) {
-  var leftArrow = document.querySelector('.fa-chevron-left');
+  if (!event.target.matches('.fa-chevron-left')) {
+    return;
+  }
+
   var currentImage = document.querySelector('.current-pokemon');
   var currentButton = document.querySelector('.current-button');
 
   var previousImage = currentImage.previousElementSibling;
   var previousButton = currentButton.previousElementSibling;
-
-  if (event.target !== leftArrow) {
-    return;
-  }
 
   if (currentImage.id === 'bulbasaur' || currentButton.id === 'firstbutton') {
     previousImage = document.querySelector('#jigglypuff');
