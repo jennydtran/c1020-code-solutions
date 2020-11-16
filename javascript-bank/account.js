@@ -30,13 +30,13 @@ Account.prototype.getBalance = function () {
   if (this.transactions.length === 0) {
     return 0;
   }
-
   var sum = 0;
   for (var i = 0; i < this.transactions.length; i++) {
     if (this.transactions[i].type === 'withdrawal') {
-      this.transactions[i].amount = -this.transactions[i].amount;
+      sum -= this.transactions[i].amount;
+    } else {
+      sum += this.transactions[i].amount;
     }
-    sum += this.transactions[i].amount;
   }
   return sum;
 
