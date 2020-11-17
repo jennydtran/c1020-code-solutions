@@ -1,13 +1,10 @@
 /* eslint-disable no-unused-vars */
 function isPalindromic(string) {
-  var i;
   var newString = string.replaceAll(' ', '');
-  var backwards = newString.length - 1;
-  for (i = 0; i < newString.length; i++) {
-    if (newString[i] !== newString[backwards]) {
+  for (var i = 0, j = newString.length - 1; i < newString.length; i++, j--) {
+    if (newString[i] !== newString[j]) {
       return false;
     }
-    backwards--;
   }
   return true;
 }
