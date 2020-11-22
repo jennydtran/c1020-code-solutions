@@ -8,7 +8,35 @@ function imageChangeWithInterval() {
   imageChangeForward();
   timerID = setTimeout(imageChangeWithInterval, 1300);
 }
-imageChangeWithInterval();
+// imageChangeWithInterval();
+
+var activeIndex = 0;
+
+function displayImage(index) {
+  for (var i = 0; i < imageList.length; i++) {
+    if (i !== index) {
+      imageList[i].classList.add('hidden');
+      buttonsList[i].classList.remove('current-button');
+    }
+    imageList[index].classList.remove('hidden');
+    buttonsList[index].classList.add('current-button');
+  }
+  activeIndex = index;
+}
+
+function getNextIndex() {
+  if (activeIndex === imageList.length - 1) {
+    return 0;
+  }
+  return activeIndex + 1;
+}
+
+function getPreviousIndex() {
+  if (activeIndex === 0) {
+    return imageList.length - 1;
+  }
+  return activeIndex - 1;
+}
 
 // image changes going forward
 function imageChangeForward() {
