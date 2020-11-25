@@ -11,5 +11,4 @@ function countdown() {
     clearInterval(intervalID);
   }
 }
-
 intervalID = setInterval(countdown, 1000);
