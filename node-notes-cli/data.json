@@ -1,0 +1,9 @@
+{
+  "nextId": 6,
+  "notes": {
+    "2": "Prototypal inheritance is how JavaScript objects delegate behavior.",
+    "3": "In JavaScript, the value of `this` is determined when a function is called. However, the value of `this` is determined when it is defined in an arrow function.",
+    "4": "A closure is formed when a function retains access to variables in its lexical scope.",
+    "5": "The data type of process.argv in Node.js is an array of strings."
+  }
+}
