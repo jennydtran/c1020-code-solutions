@@ -6,13 +6,13 @@
 -- cost = copiesofDvd * replacementCost
 -- revenue = amount per film
 with cte_filmCost as (
-  select "films"."replacementCost" as "dvdCost",
-         "rentalRate" * --count("inventory"."inventoryId") as "total",  <<<< hmmm...
-         "films"."title"
-    from "films"
-    join "inventory" using ("filmId")
-    join "rentals" using ("inventoryId")
-        group by "films"."filmId"
+  -- select "films"."replacementCost" as "dvdCost",
+  --        "rentalRate" * --count("inventory"."inventoryId") as "total",  <<<< hmmm...
+  --        "films"."title"
+  --   from "films"
+  --   join "inventory" using ("filmId")
+  --   join "rentals" using ("inventoryId")
+  --       group by "films"."filmId"
 )
 select "total" - "dvdCost" as "profit",
        "title" as "top5MostProfitableFilms"
