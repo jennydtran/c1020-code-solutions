@@ -11,27 +11,69 @@ let deck = [
   { rank: 'Ace', suit: 'spades' }, { rank: 2, suit: 'spades' }, { rank: 3, suit: 'spades' }, { rank: 4, suit: 'spades' }, { rank: 5, suit: 'spades' }, { rank: 6, suit: 'spades' }, { rank: 7, suit: 'spades' }, { rank: 8, suit: 'spades' }, { rank: 9, suit: 'spades' }, { rank: 10, suit: 'spades' }, { rank: 'Jack', suit: 'spades' }, { rank: 'Queen', suit: 'spades' }, { rank: 'King', suit: 'spades' }
 ];
 
-function dealCards(players, number) {
-  if (players.length * number > 52) { return console.log('Not enough cards to deal to players.'); }
+const cardsDealt = 2;
 
+playGame(players, cardsDealt);
+
+function playGame(players, number) {
+  if (players.length * number > 52) { return console.log('Not enough cards to deal to players.'); }
+  dealCards(players, number);
+  calculatePoints(players);
+  determineWinner(players);
+}
+
+function dealCards(players, number) {
   deck = _.shuffle(deck);
 
-  for (let i = 0, j = 0; i < players.length * number; i++, j++) {
-    if (j === players.length) {
-      j = 0;
-    }
-    if (players[j].hand.length !== number) {
-      if (deck[i].rank === 'Ace' || deck[i].rank === 'King' || deck[i].rank === 'Queen' || deck[i].rank === 'Jack') {
-        deck[i].rank = 11;
+  let count = 0;
+  for (let i = 0; i < players.length; i++) {
+    for (let j = 0; j < number; j++) {
+      if (players[i].hand.length !== number) {
+        players[i].hand.push(deck[count].rank);
+        count++;
       }
-      players[j].hand.push(deck[i].rank);
     }
+    console.log(`  ${players[i].name} was dealt ${cardsDealt} cards: ${players[i].hand}`);
   }
-  console.log(players);
 }
-dealCards(players, 2);
 
 function calculatePoints(players) {
-  const sum = _.sum(players.hand);
-  return sum;
+  for (let i = 0; i < players.length; i++) {
+    const points = [];
+    for (let j = 0; j < players[i].hand.length; j++) {
+      if (players[i].hand[j] === 'Ace' || players[i].hand[j] === 'King' || players[i].hand[j] === 'Queen' || players[i].hand[j] === 'Jack') {
+        points.push(11);
+      } else {
+        points.push(players[i].hand[j]);
+      }
+    }
+    players[i].points = _.sum(points);
+  }
+}
+
+function determineWinner(players) {
+  const xPoints = [];
+  for (let i = 0; i < players.length; i++) {
+    xPoints.push(players[i].points);
+  }
+  const highestPoints = _.max(_.uniq(xPoints));
+
+  let winnerCount = 0;
+  const winners = [];
+  for (let i = 0; i < players.length; i++) {
+    if (players[i].points === highestPoints) {
+      winnerCount++;
+      winners.push(players[i]);
+    }
+  }
+  if (winnerCount === 1) {
+    return console.log(`\nThe winner is ${winners[0].name} with ${winners[0].points} points!`);
+  } else if (winnerCount > 1) {
+    console.log(`\nThere is a ${winners.length}-way tie with each player having ${highestPoints} points! A tiebreaker game is about to start!`);
+    for (let i = 0; i < winners.length; i++) {
+      winners[i].hand = [];
+      delete winners[i].points;
+    }
+    playGame(winners, cardsDealt);
+  }
 }
