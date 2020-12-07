@@ -3,19 +3,29 @@
 -- go to payments > sum(amounts) and group by rental id
 -- go to rentals >  get inventoryId and rentalId to connect to payments in rentalId
 -- PROFIT = revenue - cost
--- cost = copiesofDvd * replacementCost
 -- revenue = amount per film
 with cte_filmCost as (
-  -- select "films"."replacementCost" as "dvdCost",
-  --        "rentalRate" * --count("inventory"."inventoryId") as "total",  <<<< hmmm...
-  --        "films"."title"
-  --   from "films"
-  --   join "inventory" using ("filmId")
-  --   join "rentals" using ("inventoryId")
-  --       group by "films"."filmId"
+  select "films"."title" as "title",
+         "films"."replacementCost",
+         count("inventory"."filmId") as "copies",
+         count("inventory"."filmId") * "films"."replacementCost" as "filmCost"
+    from "films"
+    join "inventory" using ("filmId")
+group by "films"."filmId"
+),
+     cte_filmRevenue as (
+  select "films"."title" as "title",
+         count("rentals"."inventoryId") as "rentCount",
+         sum("payments"."amount") as "filmRevenue"
+    from "films"
+    join "inventory" using ("filmId")
+    join "rentals" using ("inventoryId")
+    join "payments" using ("rentalId")
+group by "films"."filmId"
 )
-select "total" - "dvdCost" as "profit",
-       "title" as "top5MostProfitableFilms"
-  from filmCostandRate
+select cte_filmCost."title" as "mostProfitableFilms",
+       cte_filmRevenue."filmRevenue" - cte_filmCost."filmCost" as "profit"
+  from cte_filmCost
+  join cte_filmRevenue using ("title")
 order by "profit" desc
- limit 5;
+   limit 5;
