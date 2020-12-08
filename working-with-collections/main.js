@@ -4,19 +4,24 @@ console.log('Lodash is loaded:', typeof _ !== 'undefined');
 
 const players = [{ name: 'Jen', hand: [] }, { name: 'TimD', hand: [] }, { name: 'Cody', hand: [] }, { name: 'Uzair', hand: [] }];
 
-let deck = [
-  { rank: 'Ace', suit: 'clubs' }, { rank: 2, suit: 'clubs' }, { rank: 3, suit: 'clubs' }, { rank: 4, suit: 'clubs' }, { rank: 5, suit: 'clubs' }, { rank: 6, suit: 'clubs' }, { rank: 7, suit: 'clubs' }, { rank: 8, suit: 'clubs' }, { rank: 9, suit: 'clubs' }, { rank: 10, suit: 'clubs' }, { rank: 'Jack', suit: 'clubs' }, { rank: 'Queen', suit: 'clubs' }, { rank: 'King', suit: 'clubs' },
-  { rank: 'Ace', suit: 'diamonds' }, { rank: 2, suit: 'diamonds' }, { rank: 3, suit: 'diamonds' }, { rank: 4, suit: 'diamonds' }, { rank: 5, suit: 'diamonds' }, { rank: 6, suit: 'diamonds' }, { rank: 7, suit: 'diamonds' }, { rank: 8, suit: 'diamonds' }, { rank: 9, suit: 'diamonds' }, { rank: 10, suit: 'diamonds' }, { rank: 'Jack', suit: 'diamonds' }, { rank: 'Queen', suit: 'diamonds' }, { rank: 'King', suit: 'diamonds' },
-  { rank: 'Ace', suit: 'hearts' }, { rank: 2, suit: 'hearts' }, { rank: 3, suit: 'hearts' }, { rank: 4, suit: 'hearts' }, { rank: 5, suit: 'hearts' }, { rank: 6, suit: 'hearts' }, { rank: 7, suit: 'hearts' }, { rank: 8, suit: 'hearts' }, { rank: 9, suit: 'hearts' }, { rank: 10, suit: 'hearts' }, { rank: 'Jack', suit: 'hearts' }, { rank: 'Queen', suit: 'hearts' }, { rank: 'King', suit: 'hearts' },
-  { rank: 'Ace', suit: 'spades' }, { rank: 2, suit: 'spades' }, { rank: 3, suit: 'spades' }, { rank: 4, suit: 'spades' }, { rank: 5, suit: 'spades' }, { rank: 6, suit: 'spades' }, { rank: 7, suit: 'spades' }, { rank: 8, suit: 'spades' }, { rank: 9, suit: 'spades' }, { rank: 10, suit: 'spades' }, { rank: 'Jack', suit: 'spades' }, { rank: 'Queen', suit: 'spades' }, { rank: 'King', suit: 'spades' }
-];
+let deck = [];
+const ranks = ['Ace', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'Jack', 'Queen', 'King'];
+const suits = ['clubs', 'diamonds', 'hearts', 'spades'];
+
+for (var i = 0; i < suits.length; i++) {
+  for (var j = 0; j < ranks.length; j++) {
+    deck.push({ suit: suits[i], rank: ranks[j] });
+  }
+}
 
 const cardsDealt = 2;
 
 playGame(players, cardsDealt);
 
 function playGame(players, number) {
-  if (players.length * number > 52) { return console.log('Not enough cards to deal to players.'); }
+  if (players.length * number > 52) {
+    return console.log('Not enough cards to deal to players.');
+  }
   dealCards(players, number);
   calculatePoints(players);
   determineWinner(players);
@@ -69,7 +74,7 @@ function determineWinner(players) {
   if (winnerCount === 1) {
     return console.log(`\nThe winner is ${winners[0].name} with ${winners[0].points} points!`);
   } else if (winnerCount > 1) {
-    console.log(`\nThere is a ${winners.length}-way tie with each player having ${highestPoints} points! A tiebreaker game is about to start!`);
+    console.log(`\nThere is a ${winners.length}-way tie with each player having ${highestPoints} points!\nA tiebreaker game is about to start!`);
     for (let i = 0; i < winners.length; i++) {
       winners[i].hand = [];
       delete winners[i].points;
