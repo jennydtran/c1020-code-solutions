@@ -7,4 +7,4 @@ function CustomButton() {
 
 const root = document.querySelector('#root');
 
-ReactDom.render(CustomButton(), root);
+ReactDom.render(<CustomButton />, root);
