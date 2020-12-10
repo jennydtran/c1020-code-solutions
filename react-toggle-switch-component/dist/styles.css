@@ -1,0 +1,48 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  font-size: 20px;
+}
+
+#container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#toggle-rectangle {
+  display: flex;
+  align-items: center;
+  width: 80px;
+  height: 40px;
+  border: 3px solid black;
+  border-radius: 20px;
+}
+
+#toggle-circle {
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  border: 3px solid black;
+  border-radius: 50%;
+  margin: 0 -3px;
+}
+
+.on {
+  justify-content: flex-end;
+  background-color: rgb(77, 180, 77);
+}
+
+.off {
+  justify-content: flex-start;
+  background-color: rgb(180, 180, 180);
+}
+
+#label {
+  margin: 0 1rem;
+}
