@@ -10,44 +10,58 @@ class Stopwatch extends React.Component {
       pause: true
     };
     this.tick = this.tick.bind(this);
-    this.handleClick = this.handleClick.bind(this);
+    this.reset = this.reset.bind(this);
+    this.handleClickPlay = this.handleClickPlay.bind(this);
+    this.handleClickPause = this.handleClickPause.bind(this);
   }
 
   tick() {
-    this.setState({
+    this.setState(state => ({
       counter: this.state.counter + 1
-    });
+    }));
   }
 
   reset() {
-    this.setState({
-      counter: 0
-    });
+    if (this.state.pause === true && this.state.counter !== 0) {
+      this.setState(state => ({
+        counter: 0
+      }));
+    }
   }
 
-  handleClick() {
-    this.setState({
-      play: !this.state.play,
-      pause: !this.state.pause
-    });
+  handleClickPlay() {
+    this.setState(state => ({
+      play: true,
+      pause: false
+    }));
+  }
+
+  handleClickPause() {
+    this.setState(state => ({
+      play: false,
+      pause: true
+    }));
   }
 
   render() {
     const isPlaying = this.state.play;
-    const isPaused = this.state.pause;
-
     let button;
-    if (isPlaying) {
-      button = 'fas fa-pause';
-    } else if (!isPlaying) {
+    let playOrPause;
+
+    if (!isPlaying) {
       button = 'fas fa-play';
+      playOrPause = this.handleClickPlay;
+    } else {
+      button = 'fas fa-pause';
+      playOrPause = this.handleClickPause;
     }
+
     return (
       <div className="container">
-        <div id="watch">
+        <div id="watch" onClick={this.reset}>
           <div id="counter">{this.state.counter}</div>
         </div>
-        <div id="button" onClick={this.handleClick}>
+        <div id="button" onClick={playOrPause}>
           <i className={button}></i>
         </div>
       </div>
