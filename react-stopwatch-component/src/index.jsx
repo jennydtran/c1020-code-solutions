@@ -8,8 +8,7 @@ class Stopwatch extends React.Component {
     super(props);
     this.state = {
       counter: 0,
-      play: false,
-      pause: true
+      isPlaying: false
     };
     this.tick = this.tick.bind(this);
     this.reset = this.reset.bind(this);
@@ -24,7 +23,7 @@ class Stopwatch extends React.Component {
   }
 
   reset() {
-    if (this.state.pause === true && this.state.counter !== 0) {
+    if (this.state.isPlaying === false && this.state.counter !== 0) {
       this.setState(state => ({
         counter: 0
       }));
@@ -34,22 +33,20 @@ class Stopwatch extends React.Component {
 
   handleClickPlay() {
     this.setState(state => ({
-      play: true,
-      pause: false
+      isPlaying: true
     }));
     intervalID = setInterval(this.tick, 1000);
   }
 
   handleClickPause() {
     this.setState(state => ({
-      play: false,
-      pause: true
+      isPlaying: false
     }));
     clearInterval(intervalID);
   }
 
   render() {
-    const isPlaying = this.state.play;
+    const isPlaying = this.state.isPlaying;
     let button;
     let playOrPause;
 
@@ -71,7 +68,6 @@ class Stopwatch extends React.Component {
         </div>
       </div>
     );
-
   }
 }
 
@@ -79,5 +75,3 @@ ReactDOM.render(
   <Stopwatch />,
   document.querySelector('#root')
 );
-
-/// stopped at the thought: separate handler events for play, pause, reset;
