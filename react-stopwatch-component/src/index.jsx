@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+let intervalID = null;
+
 class Stopwatch extends React.Component {
   constructor(props) {
     super(props);
@@ -26,6 +28,7 @@ class Stopwatch extends React.Component {
       this.setState(state => ({
         counter: 0
       }));
+      clearInterval(intervalID);
     }
   }
 
@@ -34,6 +37,7 @@ class Stopwatch extends React.Component {
       play: true,
       pause: false
     }));
+    intervalID = setInterval(this.tick, 1000);
   }
 
   handleClickPause() {
@@ -41,6 +45,7 @@ class Stopwatch extends React.Component {
       play: false,
       pause: true
     }));
+    clearInterval(intervalID);
   }
 
   render() {
