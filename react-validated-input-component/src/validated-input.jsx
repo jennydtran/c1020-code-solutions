@@ -4,7 +4,8 @@ export default class ValidatedInput extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      passwordValue: ''
+      passwordValue: '',
+      errorMessage: null
     };
     this.handleChange = this.handleChange.bind(this);
     this.validatePassword = this.validatePassword.bind(this);
@@ -17,40 +18,33 @@ export default class ValidatedInput extends React.Component {
     const regexSpecial = new RegExp('^(?=.*[!@#$%^&*()])');
     const regexEight = new RegExp('^(?=.{8,})');
 
-    if (event.target.value === '') {
+    if (event === '') {
       this.setState(state => ({
-        errorMessage: 'A password is required.',
-        icon: 'fas fa-times'
+        errorMessage: 'A password is required.'
       }));
-    } else if (regexEight.test(event.target.value) === false) {
+    } else if (regexEight.test(event) === false) {
       this.setState(state => ({
-        errorMessage: 'Your password must be at least 8 characters long.',
-        icon: 'fas fa-times'
+        errorMessage: 'Your password must be at least 8 characters long.'
       }));
-    } else if (regexSpecial.test(event.target.value) === false) {
+    } else if (regexSpecial.test(event) === false) {
       this.setState(state => ({
-        errorMessage: 'Your password must contain at least one special character.',
-        icon: 'fas fa-times'
+        errorMessage: 'Your password must contain at least one special character.'
       }));
-    } else if (regexNumber.test(event.target.value) === false) {
+    } else if (regexNumber.test(event) === false) {
       this.setState(state => ({
-        errorMessage: 'Your password must contain at least one number.',
-        icon: 'fas fa-times'
+        errorMessage: 'Your password must contain at least one number.'
       }));
-    } else if (regexUppercase.test(event.target.value) === false) {
+    } else if (regexUppercase.test(event) === false) {
       this.setState(state => ({
-        errorMessage: 'Your password must contain at least one uppercase letter.',
-        icon: 'fas fa-times'
+        errorMessage: 'Your password must contain at least one uppercase letter.'
       }));
-    } else if (regexLowercase.test(event.target.value) === false) {
+    } else if (regexLowercase.test(event) === false) {
       this.setState(state => ({
-        errorMessage: 'Your password must contain at least one lowercase letter.',
-        icon: 'fas fa-times'
+        errorMessage: 'Your password must contain at least one lowercase letter.'
       }));
     } else {
       this.setState(state => ({
-        errorMessage: '',
-        icon: 'fas fa-check'
+        errorMessage: ''
       }));
     }
   }
@@ -59,12 +53,20 @@ export default class ValidatedInput extends React.Component {
     this.setState(state => ({
       passwordValue: event.target.value
     }));
-    this.validatePassword(event);
+    this.validatePassword(event.target.value);
   }
 
   render() {
-    const icon = this.state.icon;
+    let icon;
     const errorMessage = this.state.errorMessage;
+
+    if (errorMessage === null) {
+      icon = '';
+    } else if (errorMessage === '') {
+      icon = 'fas fa-check';
+    } else {
+      icon = 'fas fa-times';
+    }
 
     return (
       <div className="container">
