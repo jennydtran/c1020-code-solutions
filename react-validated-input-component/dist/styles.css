@@ -1,0 +1,49 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+}
+
+form {
+  width: 300px;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.7rem;
+}
+
+input {
+  height: 30px;
+  width: 130px;
+  border: 2px solid black;
+  border-radius: 3px;
+}
+
+p {
+  font-size: 0.75rem;
+  color: rgb(248, 61, 61);
+}
+
+i {
+  margin-left: 0.6rem;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fa-check {
+  color: rgb(61, 167, 61);
+}
+
+.fa-times {
+  color: rgb(248, 61, 61);
+}
