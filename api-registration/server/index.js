@@ -27,12 +27,12 @@ app.post('/api/auth/sign-up', (req, res, next) => {
       const sql = `
         insert into "users" ("username", "hashedPassword")
         values ($1, $2)
-        returning "userID", "username", "createdAt"
+        returning "userId", "username", "createdAt"
       `;
       const params = [username, hashedPassword];
       db.query(sql, params)
         .then(result => {
-          res.status(201).json(result.rows);
+          res.status(201).json(result.rows[0]);
         })
         .catch(err => next(err));
     })
