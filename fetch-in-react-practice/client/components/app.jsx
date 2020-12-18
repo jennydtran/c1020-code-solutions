@@ -44,20 +44,17 @@ export default class App extends React.Component {
   }
 
   toggleCompleted(todoId) {
-    const todos = this.state.todos;
+    const oldTodos = this.state.todos;
     let index;
-    for (let i = 0; i < todos.length; i++) {
-      if (todos[i].todoId === todoId) {
+    for (let i = 0; i < oldTodos.length; i++) {
+      if (oldTodos[i].todoId === todoId) {
         index = i;
       }
     }
-    const status = todos[index].isCompleted;
+    const isCompletedStatus = oldTodos[index].isCompleted;
     const newStatus = {
-      isCompleted: !status
+      isCompleted: !isCompletedStatus
     };
-
-    const newTodo = todos[index];
-    newTodo.isCompleted = !status;
 
     const requestOptions = {
       method: 'PATCH',
@@ -68,7 +65,9 @@ export default class App extends React.Component {
     fetch(`/api/todos/${todoId}`, requestOptions)
       .then(response => response.json())
       .then(updatedTodo => {
-        this.setState({});
+        const todos = this.state.todos;
+        todos[index] = updatedTodo;
+        this.setState({ todos: todos });
       });
   }
 
