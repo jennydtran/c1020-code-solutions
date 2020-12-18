@@ -1,0 +1,30 @@
+Create a file in the root of your react-context solution directory named flow.txt. For each feature in the application, describe the flow of the code in writing, including the client, server, and database. How does it work?
+
+
+User can sign up.
+
+When a user makes a request to sign up and create an account, what happens in the background is there will be a client request to the server. The request is a POST request to the server url '/api/auth/sign-up'. Client has to provide a username and password. If a username or password is not provided, then a new ClientError with the status code 400 and response 'username and password are required fields' will be thrown.
+
+If a username and password is provided, the argon2.hash will be called followed by a chain of promises. The `hash` method will return the password as a hashedpassword. The hashed password is then used in the next method in the chain which is a `then` method. In this `then` method an sql object is created that will insert a new row into the database when the databased is queried. This row contains the username and hashedpassword. A userId will be created by default and also the time that the username was added to the database .
+
+If the username and password has been successfully added the to database, the server will respond to the client with a status code 201 followed by the return result from the database query (which is the userId, username and the createdAt).
+
+During any of the process, if there is an error in any of the code, the catch method will handle the errors. ClientErrors are included in the catch method as well.
+
+
+User can sign in.
+
+When a user tries to sign in, a proccess called authentication will occurr. The user provides a username and password. The client will send a POST request to the server at the url '/api/auth/sign-in' with the username and password the user provided. If the username or password provided is not a valid, a new ClientError will be thrown. If its a valid username and password, a connection with the server will be made.
+
+The server will try to find the username in the database by querying database. If the username is not found a new ClientError(401, 'invalid login') will be thrown
+
+If the username is found in the database, the password now has to be verified with argon2.verify method to check to see if the password provided matches with the hashedPassword in the database. If it doesn't match, a new ClientError(401, 'invalid login') will be thrown.
+
+If there is a match, a payload variable will be defined and assigned an object with the userId and username value. A token is created with return from the jwt.sign method with the payload variable and the process.env.TOKEN_SECRET variable passed as arguemnts .
+
+During any of the process, if there is an error in any of the code, the catch method will handle the errors. ClientErrors are included in the catch method as well.
+
+
+User can stay signed in.
+
+When user signs in, and if everything was authenticated during the sign in process. The server should have responded to the client with an object containing token and it's value and the payload object (which contains userId and username). The token is then verified with jwt.verify. If the token does not match, a new ClientError(401, 'invalid login') will be through. If it does match. User can constue to stay signed in. When user signs out, token is delete.
